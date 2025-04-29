@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Explorer</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 <header>
     <div class="container">
         <div class="header-content">
-            <div class="logo">Movie<span>Explorer</span></div>
+            <div class="logo"><span>Movie</span>Flix</div>
             <nav>
                 <ul>
                     <li><a href="#" class="active" data-section="popular">Δημοφιλείς</a></li>
-                    <li><a href="#" data-section="now-playing">Τρέχουσες Προβολές</a></li>
+                    <li><a href="#" data-section="now-playing">Τρέχουσες</a></li>
                     <li><a href="#" data-section="upcoming">Επερχόμενες</a></li>
                     <li><a href="#" data-section="top-rated">Κορυφαίες</a></li>
                 </ul>
@@ -29,13 +30,68 @@
             <h2>Ανακαλύψτε ταινίες</h2>
             <form class="search-form" id="search-form">
                 <input type="text" class="search-input" id="search-input" placeholder="Αναζήτηση ταινιών...">
-                <button type="submit" class="search-button">Αναζήτηση</button>
+                <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
             </form>
         </div>
     </section>
 
     <div class="container">
         <div id="error-container"></div>
+
+        <div class="filter-container" id="filter-container">
+            <div class="filter-group">
+                <span class="filter-label">Είδος:</span>
+                <select class="filter-select" id="genre-filter">
+                    <option value="">Όλα τα είδη</option>
+                    <!-- Genres will be loaded dynamically -->
+                </select>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Έτος:</span>
+                <select class="filter-select" id="year-filter">
+                    <option value="">Όλα τα έτη</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2010s">2010-2015</option>
+                    <option value="2000s">2000-2009</option>
+                    <option value="1990s">1990-1999</option>
+                    <option value="older">Παλαιότερες</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Βαθμολογία:</span>
+                <select class="filter-select" id="rating-filter">
+                    <option value="">Όλες οι βαθμολογίες</option>
+                    <option value="9">9+ ⭐</option>
+                    <option value="8">8+ ⭐</option>
+                    <option value="7">7+ ⭐</option>
+                    <option value="6">6+ ⭐</option>
+                    <option value="5">5+ ⭐</option>
+                    <option value="0">Όλες</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Ταξινόμηση:</span>
+                <select class="filter-select" id="sort-filter">
+                    <option value="popularity.desc">Δημοφιλείς</option>
+                    <option value="vote_average.desc">Βαθμολογία (Φθίνουσα)</option>
+                    <option value="release_date.desc">Ημ/νία κυκλοφορίας (Νεότερα)</option>
+                    <option value="release_date.asc">Ημ/νία κυκλοφορίας (Παλαιότερα)</option>
+                    <option value="title.asc">Τίτλος (Α-Ω)</option>
+                </select>
+            </div>
+            <button class="filter-button" id="apply-filters">Εφαρμογή φίλτρων</button>
+            <button class="filter-clear" id="clear-filters">Καθαρισμός φίλτρων</button>
+        </div>
 
         <section id="popular-section">
             <h2 class="section-title">Δημοφιλείς Ταινίες</h2>
@@ -61,6 +117,11 @@
             <h2 class="section-title">Αποτελέσματα Αναζήτησης</h2>
             <div class="movie-grid" id="search-results"></div>
         </section>
+
+        <section id="filtered-results-section" style="display: none;">
+            <h2 class="section-title">Φιλτραρισμένα Αποτελέσματα</h2>
+            <div class="movie-grid" id="filtered-results"></div>
+        </section>
     </div>
 </main>
 
@@ -71,14 +132,14 @@
 <footer>
     <div class="container">
         <div class="footer-content">
-            <div class="footer-logo">Movie<span>Explorer</span></div>
+            <div class="footer-logo"><span>Movie</span>Flix</div>
             <div class="footer-links">
                 <a href="#">Αρχική</a>
                 <a href="#">Σχετικά</a>
                 <a href="#">Επικοινωνία</a>
             </div>
             <div class="footer-credits">
-                &copy; 2025 MovieExplorer - Με επιφύλαξη παντός δικαιώματος.
+                &copy; 2025 MovieFlix - Με επιφύλαξη παντός δικαιώματος.
             </div>
             <div class="tmdb-attribution">
                 Δεδομένα από το API του TMDB (The Movie Database)
