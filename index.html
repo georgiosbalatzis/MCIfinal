@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">Movie<span>Explorer</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active" data-section="popular">Δημοφιλείς</a></li>
+                    <li><a href="#" data-section="now-playing">Τρέχουσες Προβολές</a></li>
+                    <li><a href="#" data-section="upcoming">Επερχόμενες</a></li>
+                    <li><a href="#" data-section="top-rated">Κορυφαίες</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="search-container">
+        <div class="container">
+            <h2>Ανακαλύψτε ταινίες</h2>
+            <form class="search-form" id="search-form">
+                <input type="text" class="search-input" id="search-input" placeholder="Αναζήτηση ταινιών...">
+                <button type="submit" class="search-button">Αναζήτηση</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="container">
+        <div id="error-container"></div>
+
+        <section id="popular-section">
+            <h2 class="section-title">Δημοφιλείς Ταινίες</h2>
+            <div class="movie-grid" id="popular-movies"></div>
+        </section>
+
+        <section id="now-playing-section" style="display: none;">
+            <h2 class="section-title">Τρέχουσες Προβολές</h2>
+            <div class="movie-grid" id="now-playing-movies"></div>
+        </section>
+
+        <section id="upcoming-section" style="display: none;">
+            <h2 class="section-title">Επερχόμενες Ταινίες</h2>
+            <div class="movie-grid" id="upcoming-movies"></div>
+        </section>
+
+        <section id="top-rated-section" style="display: none;">
+            <h2 class="section-title">Κορυφαίες Ταινίες</h2>
+            <div class="movie-grid" id="top-rated-movies"></div>
+        </section>
+
+        <section id="search-results-section" style="display: none;">
+            <h2 class="section-title">Αποτελέσματα Αναζήτησης</h2>
+            <div class="movie-grid" id="search-results"></div>
+        </section>
+    </div>
+</main>
+
+<div class="movie-detail" id="movie-detail">
+    <!-- Detail content will be dynamically added here -->
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">Movie<span>Explorer</span></div>
+            <div class="footer-links">
+                <a href="#">Αρχική</a>
+                <a href="#">Σχετικά</a>
+                <a href="#">Επικοινωνία</a>
+            </div>
+            <div class="footer-credits">
+                &copy; 2025 MovieExplorer - Με επιφύλαξη παντός δικαιώματος.
+            </div>
+            <div class="tmdb-attribution">
+                Δεδομένα από το API του TMDB (The Movie Database)
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
